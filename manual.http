@@ -1,0 +1,33 @@
+### Register
+
+POST http://localhost:8080/api/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Daffa Azhar",
+  "email": "daffa@gmail.com",
+  "password": "daffa123"
+}
+
+### Login
+
+POST http://localhost:8080/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "daffa@gmail.com",
+  "password": "daffa123"
+}
+
+### Get Logged In User
+GET http://localhost:8080/api/auth/me
+Accept: application/json
+X-API-TOKEN: d3a3ded4-24fe-4b4d-9794-3176c05cb212
+
+### Get Category
+GET http://localhost:8080/api/category
+Accept: application/json
+X-API-TOKEN: d3a3ded4-24fe-4b4d-9794-3176c05cb212
+
