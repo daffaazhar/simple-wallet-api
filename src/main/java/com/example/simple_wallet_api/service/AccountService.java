@@ -1,8 +1,8 @@
 package com.example.simple_wallet_api.service;
 
 import com.example.simple_wallet_api.entity.Account;
-import com.example.simple_wallet_api.entity.Category;
 import com.example.simple_wallet_api.entity.User;
+import com.example.simple_wallet_api.model.AccountListResponse;
 import com.example.simple_wallet_api.model.AccountResponse;
 import com.example.simple_wallet_api.model.CreateAccountRequest;
 import com.example.simple_wallet_api.repository.AccountRepository;
@@ -47,9 +47,31 @@ public class AccountService {
     }
 
     @Transactional(readOnly = true)
-    public List<AccountResponse> getAll(User user) {
+    public AccountListResponse getAll(User user) {
         List<Account> accounts = accountRepository.findAllByUser(user);
-        return accounts.stream().map(this::toAccountResponse).toList();
+
+        double assets = accounts.stream()
+                .filter(account -> account.getBalance() >= 0)
+                .mapToDouble(Account::getBalance)
+                .sum();
+
+        double debts = accounts.stream()
+                .filter(account -> account.getBalance() < 0)
+                .mapToDouble(Account::getBalance)
+                .sum();
+
+        double total = assets + debts;
+
+        List<AccountResponse> accountResponses = accounts.stream()
+                .map(this::toAccountResponse)
+                .toList();
+
+        return AccountListResponse.builder()
+                .assets(assets)
+                .debts(debts)
+                .total(total)
+                .accounts(accountResponses)
+                .build();
     }
 
     @Transactional(readOnly = true)

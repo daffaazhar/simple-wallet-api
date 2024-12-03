@@ -5,12 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AccountResponse {
-    private String id;
-    private String name;
-    private double balance;
+public class AccountListResponse {
+    private double assets;
+    private double debts;
+    private double total;
+    private List<AccountResponse> accounts;
 }

@@ -38,9 +38,9 @@ public class AccountController {
             path = "/api/account",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public WebResponse<List<AccountResponse>> list(User user) {
-        List<AccountResponse> response = accountService.getAll(user);
-        return WebResponse.<List<AccountResponse>>builder().data(response).build();
+    public WebResponse<AccountListResponse> list(User user) {
+        AccountListResponse response = accountService.getAll(user);
+        return WebResponse.<AccountListResponse>builder().data(response).build();
     }
 
     @GetMapping(

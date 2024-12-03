@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AccountResponse {
-    private String id;
-    private String name;
-    private double balance;
+public class AnalyticResponse {
+    private String category;
+    private double totalAmount;
+    private double percentage;
 }
