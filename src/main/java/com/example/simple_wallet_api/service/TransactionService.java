@@ -4,6 +4,8 @@ import com.example.simple_wallet_api.entity.Account;
 import com.example.simple_wallet_api.entity.Category;
 import com.example.simple_wallet_api.entity.Transaction;
 import com.example.simple_wallet_api.entity.User;
+import com.example.simple_wallet_api.model.AccountResponse;
+import com.example.simple_wallet_api.model.CategoryResponse;
 import com.example.simple_wallet_api.model.CreateTransactionRequest;
 import com.example.simple_wallet_api.model.TransactionResponse;
 import com.example.simple_wallet_api.repository.AccountRepository;
@@ -90,10 +92,22 @@ public class TransactionService {
     }
 
     private TransactionResponse toTransactionResponse(Transaction transaction) {
+        AccountResponse accountResponse = AccountResponse.builder()
+                .id(transaction.getAccount().getId())
+                .name(transaction.getAccount().getName())
+                .balance(transaction.getAccount().getBalance())
+                .build();
+
+        CategoryResponse categoryResponse = CategoryResponse.builder()
+                .id(transaction.getCategory().getId())
+                .name(transaction.getCategory().getName())
+                .type(transaction.getCategory().getType())
+                .build();
+
         return TransactionResponse.builder()
                 .id(transaction.getId())
-                .accountId(transaction.getAccount().getId())
-                .categoryId(transaction.getCategory().getId())
+                .account(accountResponse)
+                .category(categoryResponse)
                 .type(transaction.getType())
                 .date(transaction.getDate())
                 .amount(transaction.getAmount())

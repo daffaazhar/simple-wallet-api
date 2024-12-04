@@ -16,10 +16,10 @@ import java.time.LocalDate;
 @Builder
 public class TransactionResponse {
     private String id;
-    private String accountId;
-    private String categoryId;
     private Type type;
     private LocalDate date;
     private double amount;
     private String description;
+    private AccountResponse account;
+    private CategoryResponse category;
 }
