@@ -2,7 +2,7 @@ package com.example.simple_wallet_api.controller;
 
 import com.example.simple_wallet_api.SimpleWalletApiApplication;
 import com.example.simple_wallet_api.entity.User;
-import com.example.simple_wallet_api.model.RegisterUserRequest;
+import com.example.simple_wallet_api.model.auth.RegisterUserRequest;
 import com.example.simple_wallet_api.model.WebResponse;
 import com.example.simple_wallet_api.repository.UserRepository;
 import com.example.simple_wallet_api.security.BCrypt;

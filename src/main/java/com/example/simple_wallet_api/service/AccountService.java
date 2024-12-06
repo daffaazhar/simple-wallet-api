@@ -2,9 +2,9 @@ package com.example.simple_wallet_api.service;
 
 import com.example.simple_wallet_api.entity.Account;
 import com.example.simple_wallet_api.entity.User;
-import com.example.simple_wallet_api.model.AccountListResponse;
-import com.example.simple_wallet_api.model.AccountResponse;
-import com.example.simple_wallet_api.model.CreateAccountRequest;
+import com.example.simple_wallet_api.model.account.AccountListResponse;
+import com.example.simple_wallet_api.model.account.AccountResponse;
+import com.example.simple_wallet_api.model.account.CreateAccountRequest;
 import com.example.simple_wallet_api.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

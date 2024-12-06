@@ -1,4 +1,4 @@
-package com.example.simple_wallet_api.model;
+package com.example.simple_wallet_api.model.transaction;
 
 import com.example.simple_wallet_api.entity.Transaction.Type;
 import jakarta.validation.constraints.NotBlank;

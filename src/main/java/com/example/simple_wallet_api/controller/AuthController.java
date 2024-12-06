@@ -1,10 +1,11 @@
 package com.example.simple_wallet_api.controller;
 
 import com.example.simple_wallet_api.entity.User;
-import com.example.simple_wallet_api.model.LoginResponse;
-import com.example.simple_wallet_api.model.LoginUserRequest;
-import com.example.simple_wallet_api.model.MeResponse;
-import com.example.simple_wallet_api.model.WebResponse;
+import com.example.simple_wallet_api.model.*;
+import com.example.simple_wallet_api.model.auth.LoginResponse;
+import com.example.simple_wallet_api.model.auth.LoginUserRequest;
+import com.example.simple_wallet_api.model.auth.MeResponse;
+import com.example.simple_wallet_api.model.auth.RegisterUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,16 @@ import com.example.simple_wallet_api.service.AuthService;
 public class AuthController {
     @Autowired
     private AuthService authService;
+
+    @PostMapping(
+            path = "/api/auth/register",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public WebResponse<String> register(@RequestBody RegisterUserRequest request) {
+        authService.register(request);
+        return WebResponse.<String>builder().data("OK").build();
+    }
 
     @PostMapping(
             path = "/api/auth/login",

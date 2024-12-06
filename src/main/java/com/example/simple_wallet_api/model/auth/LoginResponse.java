@@ -1,4 +1,4 @@
-package com.example.simple_wallet_api.model;
+package com.example.simple_wallet_api.model.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,7 +1,8 @@
-package com.example.simple_wallet_api.model;
+package com.example.simple_wallet_api.model.category;
 
-import jakarta.validation.constraints.Email;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,16 +13,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RegisterUserRequest {
+public class UpdateCategoryRequest {
+    @JsonIgnore
+    @NotNull
+    private String id;
+
     @NotBlank
     @Size(max = 100)
     private String name;
-
-    @NotBlank
-    @Email
-    private String email;
-
-    @NotBlank
-    @Size(min = 8)
-    private String password;
 }

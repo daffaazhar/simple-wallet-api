@@ -1,7 +1,7 @@
-package com.example.simple_wallet_api.model;
+package com.example.simple_wallet_api.model.account;
 
-import com.example.simple_wallet_api.entity.Category.Type;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,10 +12,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreateCategoryRequest {
+public class CreateAccountRequest {
     @NotBlank
     @Size(max = 100)
     private String name;
-    
-    private Type type;
+
+    @NotNull
+    private double balance;
 }

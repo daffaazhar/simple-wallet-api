@@ -1,6 +1,6 @@
-package com.example.simple_wallet_api.model;
+package com.example.simple_wallet_api.model.home;
 
-import com.example.simple_wallet_api.entity.Transaction;
+import com.example.simple_wallet_api.model.transaction.TransactionResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

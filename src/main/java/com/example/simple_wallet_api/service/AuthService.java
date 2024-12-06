@@ -1,9 +1,10 @@
 package com.example.simple_wallet_api.service;
 
 import com.example.simple_wallet_api.entity.User;
-import com.example.simple_wallet_api.model.LoginResponse;
-import com.example.simple_wallet_api.model.LoginUserRequest;
-import com.example.simple_wallet_api.model.MeResponse;
+import com.example.simple_wallet_api.model.auth.LoginResponse;
+import com.example.simple_wallet_api.model.auth.LoginUserRequest;
+import com.example.simple_wallet_api.model.auth.MeResponse;
+import com.example.simple_wallet_api.model.auth.RegisterUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,23 @@ public class AuthService {
 
     @Autowired
     private ValidationService validationService;
+
+    @Transactional
+    public void register(RegisterUserRequest request) {
+        validationService.validate(request);
+
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email address already registered");
+        }
+
+        User user = new User();
+        user.setId(UUID.randomUUID().toString());
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(BCrypt.hashpw(request.getPassword(), BCrypt.gensalt()));
+
+        userRepository.save(user);
+    }
 
     @Transactional
     public LoginResponse login(LoginUserRequest request) {

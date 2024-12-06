@@ -1,4 +1,4 @@
-package com.example.simple_wallet_api.model;
+package com.example.simple_wallet_api.model.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AccountResponse {
-    private String id;
+public class MeResponse {
     private String name;
-    private double balance;
+    private String email;
 }

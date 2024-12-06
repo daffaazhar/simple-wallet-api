@@ -2,9 +2,9 @@ package com.example.simple_wallet_api.service;
 
 import com.example.simple_wallet_api.entity.Category;
 import com.example.simple_wallet_api.entity.User;
-import com.example.simple_wallet_api.model.CategoryResponse;
-import com.example.simple_wallet_api.model.CreateCategoryRequest;
-import com.example.simple_wallet_api.model.UpdateCategoryRequest;
+import com.example.simple_wallet_api.model.category.CategoryResponse;
+import com.example.simple_wallet_api.model.category.CreateCategoryRequest;
+import com.example.simple_wallet_api.model.category.UpdateCategoryRequest;
 import com.example.simple_wallet_api.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

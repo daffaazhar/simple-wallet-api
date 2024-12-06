@@ -2,12 +2,13 @@ package com.example.simple_wallet_api.controller;
 
 import com.example.simple_wallet_api.entity.User;
 import com.example.simple_wallet_api.model.*;
+import com.example.simple_wallet_api.model.account.AccountListResponse;
+import com.example.simple_wallet_api.model.account.AccountResponse;
+import com.example.simple_wallet_api.model.account.CreateAccountRequest;
 import com.example.simple_wallet_api.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin
 @RestController

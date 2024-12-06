@@ -1,9 +1,9 @@
 package com.example.simple_wallet_api.controller;
 
 import com.example.simple_wallet_api.entity.User;
-import com.example.simple_wallet_api.model.LoginResponse;
-import com.example.simple_wallet_api.model.LoginUserRequest;
-import com.example.simple_wallet_api.model.MeResponse;
+import com.example.simple_wallet_api.model.auth.LoginResponse;
+import com.example.simple_wallet_api.model.auth.LoginUserRequest;
+import com.example.simple_wallet_api.model.auth.MeResponse;
 import com.example.simple_wallet_api.model.WebResponse;
 import com.example.simple_wallet_api.repository.UserRepository;
 import com.example.simple_wallet_api.security.BCrypt;
@@ -18,10 +18,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.MockMvcBuilder.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc

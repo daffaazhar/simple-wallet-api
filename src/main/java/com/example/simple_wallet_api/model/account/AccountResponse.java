@@ -1,6 +1,5 @@
-package com.example.simple_wallet_api.model;
+package com.example.simple_wallet_api.model.account;
 
-import com.example.simple_wallet_api.entity.Category.Type;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CategoryResponse {
+public class AccountResponse {
     private String id;
     private String name;
-    private Type type;
+    private double balance;
 }

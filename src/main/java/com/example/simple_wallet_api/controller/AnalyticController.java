@@ -1,7 +1,7 @@
 package com.example.simple_wallet_api.controller;
 
 import com.example.simple_wallet_api.entity.User;
-import com.example.simple_wallet_api.model.AnalyticResponse;
+import com.example.simple_wallet_api.model.analytic.AnalyticResponse;
 import com.example.simple_wallet_api.model.WebResponse;
 import com.example.simple_wallet_api.service.AnalyticService;
 import org.springframework.beans.factory.annotation.Autowired;

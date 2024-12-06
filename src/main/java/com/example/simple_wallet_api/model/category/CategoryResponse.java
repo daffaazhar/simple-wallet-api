@@ -1,5 +1,6 @@
-package com.example.simple_wallet_api.model;
+package com.example.simple_wallet_api.model.category;
 
+import com.example.simple_wallet_api.entity.Category.Type;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MeResponse {
+public class CategoryResponse {
+    private String id;
     private String name;
-    private String email;
+    private Type type;
 }
