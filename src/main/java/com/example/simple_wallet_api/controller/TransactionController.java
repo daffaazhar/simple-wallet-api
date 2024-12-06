@@ -2,6 +2,9 @@ package com.example.simple_wallet_api.controller;
 
 import com.example.simple_wallet_api.entity.User;
 import com.example.simple_wallet_api.model.*;
+import com.example.simple_wallet_api.model.transaction.CreateTransactionRequest;
+import com.example.simple_wallet_api.model.transaction.TransactionResponse;
+import com.example.simple_wallet_api.model.transaction.UpdateTransactionRequest;
 import com.example.simple_wallet_api.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -41,5 +44,16 @@ public class TransactionController {
     public WebResponse<String> delete(User user, @PathVariable("transactionId") String transactionId) {
         transactionService.delete(user, transactionId);
         return WebResponse.<String>builder().data("OK").build();
+    }
+
+    @PutMapping(
+            path = "/api/transaction/{transactionId}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public WebResponse<TransactionResponse> update(User user, @RequestBody UpdateTransactionRequest request, @PathVariable("transactionId") String transactionId) {
+        request.setId(transactionId);
+        TransactionResponse response = transactionService.update(user, request);
+        return WebResponse.<TransactionResponse>builder().data(response).build();
     }
 }

@@ -4,10 +4,11 @@ import com.example.simple_wallet_api.entity.Account;
 import com.example.simple_wallet_api.entity.Category;
 import com.example.simple_wallet_api.entity.Transaction;
 import com.example.simple_wallet_api.entity.User;
-import com.example.simple_wallet_api.model.AccountResponse;
-import com.example.simple_wallet_api.model.CategoryResponse;
-import com.example.simple_wallet_api.model.CreateTransactionRequest;
-import com.example.simple_wallet_api.model.TransactionResponse;
+import com.example.simple_wallet_api.model.account.AccountResponse;
+import com.example.simple_wallet_api.model.category.CategoryResponse;
+import com.example.simple_wallet_api.model.transaction.CreateTransactionRequest;
+import com.example.simple_wallet_api.model.transaction.TransactionResponse;
+import com.example.simple_wallet_api.model.transaction.UpdateTransactionRequest;
 import com.example.simple_wallet_api.repository.AccountRepository;
 import com.example.simple_wallet_api.repository.CategoryRepository;
 import com.example.simple_wallet_api.repository.TransactionRepository;
@@ -89,6 +90,43 @@ public class TransactionService {
 
         accountRepository.save(account);
         transactionRepository.delete(transaction);
+    }
+
+    public TransactionResponse update(User user, UpdateTransactionRequest request) {
+        validationService.validate(request);
+
+        Transaction transaction = transactionRepository.findFirstByUserAndId(user, request.getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Transaction not found"));
+
+        Category category = categoryRepository.findFirstByUserAndId(user, request.getCategoryId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Category not found"));
+
+        Account account = accountRepository.findFirstByUserAndId(user, request.getAccountId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found"));
+
+        if (transaction.getType() == Transaction.Type.EXPENSE) {
+            account.setBalance(account.getBalance() + transaction.getAmount());
+        } else {
+            account.setBalance(account.getBalance() - transaction.getAmount());
+        }
+
+        transaction.setAccount(account);
+        transaction.setCategory(category);
+        transaction.setDate(request.getDate());
+        transaction.setType(request.getType());
+        transaction.setAmount(request.getAmount());
+        transaction.setDescription(request.getDescription());
+
+        if (request.getType() == Transaction.Type.EXPENSE) {
+            account.setBalance(account.getBalance() - request.getAmount());
+        } else {
+            account.setBalance(account.getBalance() + request.getAmount());
+        }
+
+        transactionRepository.save(transaction);
+        accountRepository.save(account);
+
+        return toTransactionResponse(transaction);
     }
 
     private TransactionResponse toTransactionResponse(Transaction transaction) {
