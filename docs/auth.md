@@ -1,8 +1,8 @@
 ## Register User
 
-Endpoint : POST /api/auth/register
+Endpoint: POST /api/auth/register
 
-Request Body :
+Request Body:
 
 ```json
 {
@@ -12,7 +12,7 @@ Request Body :
 }
 ```
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -22,7 +22,7 @@ Response Body (Success) :
 
 ```
 
-Response Body (Failed) :
+Response Body (Failed):
 
 ```json
 {
@@ -32,9 +32,9 @@ Response Body (Failed) :
 
 ## Login User
 
-Endpoint : POST /api/auth/login
+Endpoint: POST /api/auth/login
 
-Request Body :
+Request Body:
 
 ```json
 {
@@ -43,7 +43,7 @@ Request Body :
 }
 ```
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -56,7 +56,7 @@ Response Body (Success) :
 
 ```
 
-Response Body (Failed) :
+Response Body (Failed):
 
 ```json
 {
@@ -66,13 +66,13 @@ Response Body (Failed) :
 
 ## Me
 
-Endpoint : POST /api/auth/me
+Endpoint: POST /api/auth/me
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -85,7 +85,7 @@ Response Body (Success) :
 
 ```
 
-Response Body (Failed) :
+Response Body (Failed):
 
 ```json
 {

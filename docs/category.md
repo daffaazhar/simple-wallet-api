@@ -1,12 +1,12 @@
 ## Get All Categories
 
-Endpoint : GET /api/category
+Endpoint: GET /api/category
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -24,13 +24,13 @@ Response Body (Success) :
 
 ## Create Category
 
-Endpoint : POST /api/category
+Endpoint: POST /api/category
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Request Body :
+Request Body:
 
 ```json
 {
@@ -39,7 +39,7 @@ Request Body :
 }
 ```
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -55,13 +55,13 @@ Response Body (Success) :
 
 ## Update Category
 
-Endpoint : PUT /api/category/{idCategory}
+Endpoint: PUT /api/category/{idCategory}
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Request Body :
+Request Body:
 
 ```json
 {
@@ -69,7 +69,7 @@ Request Body :
 }
 ```
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -85,13 +85,13 @@ Response Body (Success) :
 
 ## Delete Category
 
-Endpoint : DELETE /api/category/{idCategory}
+Endpoint: DELETE /api/category/{idCategory}
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {

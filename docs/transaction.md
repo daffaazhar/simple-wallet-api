@@ -1,12 +1,12 @@
 ## Get Transaction by Month and Year
 
-Endpoint : GET /api/transaction?month={month}&year={year}
+Endpoint: GET /api/transaction?month={month}&year={year}
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -69,13 +69,13 @@ Response Body (Success) :
 
 ## Create Transaction
 
-Endpoint : POST /api/transaction
+Endpoint: POST /api/transaction
 
-Request Header :
+Request Header:
 
 - X-API-TOKEN : Token (Mandatory)
 
-Request Body :
+Request Body:
 
 ```json
 {
@@ -88,7 +88,7 @@ Request Body :
 }
 ```
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -101,6 +101,36 @@ Response Body (Success) :
     "amount": 25000.0,
     "description": "Gojek"
   },
+  "errors": null
+}
+```
+
+## Update Transaction
+
+Endpoint : PUT /api/transaction/{transactionId}
+
+Request Header:
+
+- X-API-TOKEN : Token (Mandatory)
+
+Request Body:
+
+```json
+{
+  "accountId": "59573774-d6c9-48db-b36c-a3274cd1711b",
+  "categoryId": "285ce5e6-6166-4826-9d5a-c0571fdb3576",
+  "type": "EXPENSE",
+  "date": "2024-12-08",
+  "amount": 20000,
+  "description": "Gojek ke Kantor"
+}
+```
+
+Response Body (Success):
+
+```json
+{
+  "data": "OK",
   "errors": null
 }
 ```

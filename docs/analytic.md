@@ -1,12 +1,12 @@
 ## Get Expense Analytic
 
-Endpoint : GET /api/analytic/expense?month={month}&year={year}
+Endpoint: GET /api/analytic/expense?month={month}&year={year}
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -28,13 +28,13 @@ Response Body (Success) :
 
 ## Get Income Analytic
 
-Endpoint : GET /api/analytic/income?month={month}&year={year}
+Endpoint: GET /api/analytic/income?month={month}&year={year}
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {

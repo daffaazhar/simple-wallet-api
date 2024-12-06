@@ -1,12 +1,12 @@
 ## Get Home Data
 
-Endpoint : GET /api/home
+Endpoint: GET /api/home
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {

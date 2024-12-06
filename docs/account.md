@@ -1,12 +1,12 @@
 ## Get All Accounts
 
-Endpoint : GET /api/account
+Endpoint: GET /api/account
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -28,13 +28,13 @@ Response Body (Success) :
 
 ## Get Account by Id
 
-Endpoint : GET /api/account/{accountId}
+Endpoint: GET /api/account/{accountId}
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -49,13 +49,13 @@ Response Body (Success) :
 
 ## Create Account
 
-Endpoint : POST /api/account
+Endpoint: POST /api/account
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Request Body :
+Request Body:
 
 ```json
 {
@@ -64,7 +64,7 @@ Request Body :
 }
 ```
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
@@ -79,13 +79,13 @@ Response Body (Success) :
 
 ## Delete Account
 
-Endpoint : DELETE /api/account/{idAccount}
+Endpoint: DELETE /api/account/{idAccount}
 
-Request Header :
+Request Header:
 
-- X-API-TOKEN : Token (Mandatory)
+- X-API-TOKEN: Token (Mandatory)
 
-Response Body (Success) :
+Response Body (Success):
 
 ```json
 {
